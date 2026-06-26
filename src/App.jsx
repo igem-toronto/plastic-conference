@@ -72,7 +72,7 @@ const partners = [
   {
     name: 'U of T Trash Team',
     description:
-      'The U of T Trash Team is a science-based community outreach group of students, researchs and volunteers working to increase waste literacy and reduce plastic pollution in our ecosystems.',
+      'The U of T Trash Team is a science-based community outreach group of students, researchers and volunteers working to increase waste literacy and reduce plastic pollution in our ecosystems.',
     image: trashTeamLogo,
     accent: 'blue',
     url: 'https://uofttrashteam.ca/',
@@ -80,7 +80,7 @@ const partners = [
   {
     name: 'U of T School of the Environment',
     description:
-      'The School of the Environment is a hub for students and researchs across the social sciences, natural sciences, and humanities, bring together diverse perspectives on today\'s pressing environment challenges.',
+      'The School of the Environment is a hub for students and researchers across the social sciences, natural sciences, and humanities, bringing together diverse perspectives on today\'s pressing environmental challenges.',
     image: schoolOfEnvLogo,
     accent: 'orange',
     url: 'https://www.environment.utoronto.ca/',
@@ -88,7 +88,7 @@ const partners = [
   {
     name: 'Toronto Climate Week',
     description:
-      'Born from a blod grassroots vision, Toronto Climate Week is a Canadian platform uniting climate action with culture, innovation, and community positioning Toronto and Canada as a globally recognized climate hub.',
+      'Born from a bold grassroots vision, Toronto Climate Week is a Canadian platform uniting climate action with culture, innovation, and community positioning Toronto and Canada as a globally recognized climate hub.',
     image: torontoClimateWeekLogo,
     accent: 'acid',
     url: 'https://www.tocw.ca/',
@@ -176,7 +176,7 @@ function App() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Interested in Registrating? <ArrowIcon />
+                Interested in Registering? <ArrowIcon />
               </a>
               <a className="text-link" href="#program">
                 Explore the program
@@ -277,7 +277,7 @@ function App() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Interested in Registrating? <ArrowIcon />
+            Interested in Registering? <ArrowIcon />
           </a>
           <button
             type="button"
