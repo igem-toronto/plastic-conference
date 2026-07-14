@@ -1,3 +1,5 @@
+import conferenceLogo from './problem-statement/conf_logo_text.png'
+
 function NavArrow() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -10,8 +12,7 @@ export default function ConferenceNav({ current = 'home' }) {
   return (
     <header className="conference-nav">
       <a className="conference-brand" href="#top" aria-label="UofT Microplastics Conference home">
-        <span className="conference-brand-mark">UofT</span>
-        <span className="conference-brand-name">Microplastics<br />Conference 2026</span>
+        <img className="conference-brand-logo" src={conferenceLogo} alt="UofT Microplastics Conference 2026" />
       </a>
 
       <nav aria-label="Main navigation">

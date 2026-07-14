@@ -55,6 +55,15 @@ a {
   width: fit-content;
 }
 
+.conference-brand-logo {
+  display: block;
+  height: auto;
+  max-height: 3rem;
+  object-fit: contain;
+  object-position: left center;
+  width: clamp(9rem, 13vw, 12rem);
+}
+
 .conference-brand-mark {
   align-items: center;
   background: var(--acid);

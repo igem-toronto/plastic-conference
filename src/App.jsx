@@ -23,67 +23,60 @@ function useHashRoute() {
 
 const sessions = [
   {
-    time: '09:00',
-    title: 'Opening Remarks',
-    type: 'opening',
+    time: '9:00–9:30',
+    title: 'Registration · Refreshments',
+    type: 'Registration',
   },
   {
-    time: '10:00',
-    title: 'Speaker: Dr Kara Lavender Law',
+    time: '9:30–10:00',
+    title: 'Opening Remarks',
+    type: 'Opening',
+  },
+  {
+    time: '10:00–11:00',
+    title: 'Keynote: Plastic Pollution By Kara Lavender Law',
     type: 'Keynote',
   },
   {
-    time: '11:15',
-    title: 'Environment: Name',
-    type: 'Seminar',
+    time: '11:00–11:15',
+    title: 'Coffee Break',
+    type: 'Break',
   },
   {
-    time: '11:45',
-    title: 'Health: Name',
-    type: 'Seminar',
+    time: '11:15–11:45',
+    title: 'Plastics on the Environment',
+    type: 'Speaker',
   },
   {
-    time: '12:15',
+    time: '11:45–12:15',
+    title: 'Plastics on Health by Matthew Campen',
+    type: 'Speaker',
+  },
+  {
+    time: '12:15–1:00',
     title: 'Lunch',
     type: 'Break',
   },
   {
-    time: '13:15',
-    title: 'Scientific solution: Name',
-    type: 'Seminar',
+    time: '1:00–2:00',
+    title: 'TBC',
+    type: 'Speaker',
   },
   {
-    time: '13:35',
-    title: 'Community solution: Name',
-    type: 'Seminar',
+    time: '2:00–3:00',
+    title: 'Poster Presentation',
+    type: 'Exhibition',
   },
   {
-    time: '14:00',
-    title: 'Industry State: Name',
+    time: '3:00–4:00',
+    title: 'The Current Regulatory State of Mitigating Microplastics in the Environment',
     type: 'Panel',
   },
   {
-    time: '14:45',
-    title: 'Coffee',
-    type: 'Break',
+    time: '4:00–5:00',
+    title: 'Closing Remarks',
+    type: 'Closing',
   },
-  {
-    time: '15:00',
-    title: 'Regulatory State: Name',
-    type: 'Panel',
-  },
-  {
-    time: '15:45',
-    title: 'Coffee',
-    type: 'Break',
-  },
-  {
-    time: '14:00',
-    title: 'Name',
-    type: 'Seminar',
-  },
-  
-
 ]
 
 const partners = [
@@ -185,7 +178,7 @@ function App() {
       <main id="top">
         <section className="hero">
           <div className="hero-copy">
-            <p className="eyebrow">Toronto · September XX–XX, 2026</p>
+            <p className="eyebrow">Toronto · September 19, 2026</p>
             <h1>
               Rethink
               <span>plastic.</span>
