@@ -150,7 +150,7 @@ function App() {
 
   const handleShare = async () => {
     // The link to the conference info is simply this page.
-    const shareUrl = window.location.href
+    const shareUrl = 'https://igem.skule.ca/plastic-conference/'
 
     try {
       await navigator.clipboard.writeText(shareUrl)

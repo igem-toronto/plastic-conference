@@ -23,8 +23,13 @@ export default function ConferenceNav({ current = 'home' }) {
         <a href="#tickets">Tickets</a>
       </nav>
 
-      <a className="conference-nav-cta" href="#tickets">
-        Get a pass <NavArrow />
+      <a
+        className="conference-nav-cta"
+        href="https://forms.gle/XJAg5c3tc1gP4Xzp9"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Register <NavArrow />
       </a>
     </header>
   )
