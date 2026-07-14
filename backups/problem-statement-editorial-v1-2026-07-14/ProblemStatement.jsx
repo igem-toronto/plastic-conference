@@ -1,12 +1,10 @@
 import { useEffect, useState } from 'react'
-import ConferenceNav from './ConferenceNav'
 import lakeMap from './problem-statement/great-lakes-map.png'
-import turtlePlastic from './problem-statement/turtle_plastics.png'
-import whalePlastic from './problem-statement/whale_plastics.png'
-import toronto from './problem-statement/toronto.png'
+import airbornePlastic from './problem-statement/6.jpg'
+import contaminants from './problem-statement/7.jpg'
+import agreement from './problem-statement/9.jpg'
+import toronto from './problem-statement/12.jpg'
 import exposurePathways from './problem-statement/exposure-pathways.png'
-import glwqaArchive from './problem-statement/glwqa-archive.png'
-import conferenceLogo from './problem-statement/conf_logo_text.png'
 
 const REGISTRATION_URL = 'https://forms.gle/XJAg5c3tc1gP4Xzp9'
 
@@ -15,25 +13,28 @@ const pathways = [
     id: 'water',
     label: 'From water',
     eyebrow: 'Visible pathways',
-    title: 'Rivers, drains and visible litter carry plastic into waterways.',
-    text: 'This is the pathway most people recognize: plastic enters freshwater, fragments into smaller particles and moves through aquatic ecosystems.',
-    visual: 'water',
+    title: 'Rivers, drains and litter carry plastic into freshwater.',
+    text: 'What we can see is only one part of the system. Plastic fragments continue to break down, move through watersheds and interact with aquatic life.',
+    image: airbornePlastic,
+    alt: 'Plastic pollution near a freshwater shoreline',
   },
   {
     id: 'air',
     label: 'From air',
     eyebrow: 'Invisible pathways',
-    title: 'Plastic pollution is also falling from the air.',
-    text: 'Microplastic pollution is not only a waterway issue. Airborne particles create another route into environments—and another potential route of human exposure.',
-    visual: 'air',
+    title: 'Microplastics are also falling from the air.',
+    text: 'Airborne particles make plastic pollution an issue of both ingestion and inhalation—not only something that enters waterways through visible litter.',
+    image: exposurePathways,
+    alt: 'Illustration of ingestion and inhalation exposure pathways',
   },
   {
     id: 'chemistry',
     label: 'Carrying chemicals',
     eyebrow: 'Complex pathways',
-    title: 'Microplastics can carry contaminants and chemicals.',
-    text: 'Colourants, plasticizers and flame retardants can be associated with plastic debris, creating a persistent and chemically complex form of contamination.',
-    visual: 'chemistry',
+    title: 'Small particles can carry a complicated chemical load.',
+    text: 'In the environment, microplastics can carry colourants, plasticizers and flame retardants: a persistent and chemically complex form of contamination.',
+    image: contaminants,
+    alt: 'Diagram of contaminants associated with plastic debris',
   },
 ]
 
@@ -88,15 +89,30 @@ export default function ProblemStatement() {
     <div className="story-page">
       <div className="story-progress" aria-hidden="true"><span style={{ width: `${progress}%` }} /></div>
 
-      <ConferenceNav current="problem" />
+      <header className="story-nav">
+        <a className="story-brand" href="#top" aria-label="UofT Microplastics Conference home">
+          <span>UofT</span>
+          <strong>Microplastics Conference</strong>
+        </a>
+        <nav aria-label="Problem statement chapters">
+          <a href="#freshwater">Freshwater</a>
+          <a href="#pathways">Pathways</a>
+          <a href="#health">Health</a>
+          <a href="#gap">The gap</a>
+        </nav>
+        <a className="story-nav-cta" href={REGISTRATION_URL} target="_blank" rel="noreferrer">Register interest <ArrowIcon /></a>
+      </header>
 
       <main id="top">
         <section className="story-hero">
           <div className="story-hero-copy story-reveal">
             <p className="story-kicker">The problem that brings us together</p>
-            <h1>Why<br /><em>microplastics?</em></h1>
-            <p className="story-hero-lead">Freshwater microplastics are an urgent, under-monitored problem. UofT Microplastics Conference 2026 brings research, awareness and action together to face it.</p>
-
+            <h1>Microplastics are small.<br /><em>The questions aren’t.</em></h1>
+            <p className="story-hero-lead">Freshwater microplastics are widespread, chemically complex and still under-monitored. This conference brings the people who study the problem together with those ready to act on it.</p>
+            <div className="story-actions">
+              <a className="story-button story-button-primary" href="#freshwater">Explore the evidence <ArrowIcon /></a>
+              <a className="story-text-link" href="#conference">Why attend?</a>
+            </div>
           </div>
           <div className="story-hero-visual story-reveal" aria-hidden="true">
             <div className="story-water-ring"><span>84%</span><small>of North America’s<br />surface freshwater</small></div>
@@ -125,11 +141,6 @@ export default function ProblemStatement() {
               <strong>20<span>%</span></strong>
               <p>of the world’s surface freshwater is held here.</p>
             </article>
-          </div>
-
-          <div className="story-aquatic-gallery story-reveal">
-            <figure><img src={whalePlastic} alt="Whale swimming among plastic pollution" /></figure>
-            <figure><img src={turtlePlastic} alt="Sea turtle encountering plastic pollution" /></figure>
           </div>
 
           <div className="story-risk story-reveal">
@@ -162,16 +173,7 @@ export default function ProblemStatement() {
                 <h3>{activePathway.title}</h3>
                 <p>{activePathway.text}</p>
               </div>
-              <div className={`story-pathway-visual story-pathway-${activePathway.visual}`} aria-hidden="true">
-                <span className="story-particle story-particle-one" />
-                <span className="story-particle story-particle-two" />
-                <span className="story-particle story-particle-three" />
-                <div className="story-pathway-symbol">
-                  {activePathway.visual === 'water' && <><b>H₂O</b><small>rivers · drains · litter</small></>}
-                  {activePathway.visual === 'air' && <><b>AIR</b><small>fallout · inhalation</small></>}
-                  {activePathway.visual === 'chemistry' && <><b>MP</b><small>colourants · plasticizers<br />flame retardants</small></>}
-                </div>
-              </div>
+              <figure><img src={activePathway.image} alt={activePathway.alt} /></figure>
             </div>
           </div>
         </section>
@@ -195,9 +197,7 @@ export default function ProblemStatement() {
         <section className="story-section story-gap" id="gap">
           <SectionHeading number="04" label="The response gap" title="Mounting evidence. Fragmented monitoring." intro="The science is moving, but policy and coordinated monitoring have not yet caught up." />
           <div className="story-gap-grid">
-            <figure className="story-agreement story-reveal">
-              <img src={glwqaArchive} alt="Archival image of the Great Lakes Water Quality Agreement" />
-            </figure>
+            <figure className="story-agreement story-reveal"><img src={agreement} alt="Great Lakes Water Quality Agreement publication" /></figure>
             <div className="story-gap-copy story-reveal">
               <p className="story-kicker">Where things stand</p>
               <h3>Microplastics are still not systematically monitored in Canada.</h3>
@@ -210,7 +210,7 @@ export default function ProblemStatement() {
         <section className="story-section story-conference" id="conference">
           <div className="story-conference-visual story-reveal">
             <img src={toronto} alt="Toronto skyline across Lake Ontario" />
-            <img className="story-conference-logo" src={conferenceLogo} alt="UofT Microplastics Conference 2026" />
+            <span>Toronto · 2026</span>
           </div>
           <div className="story-conference-copy story-reveal">
             <p className="story-kicker">From evidence to momentum</p>

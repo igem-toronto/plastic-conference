@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import ProblemStatement from './ProblemStatement'
+import ConferenceNav from './ConferenceNav'
 import trashTeamLogo from './assets/Logo-final-trash-team_dark_background.webp'
 import schoolOfEnvLogo from './assets/uoft school of the env.DyREpoyV.png'
 import torontoClimateWeekLogo from './assets/toronto-climate-week.png'
@@ -135,6 +136,20 @@ function App() {
   const [copied, setCopied] = useState(false)
   const route = useHashRoute()
 
+  // When leaving the hash-routed Problem page for a homepage anchor, the
+  // browser sees the hash before the homepage sections have mounted. Wait for
+  // React to render them, then perform the intended anchor scroll.
+  useEffect(() => {
+    if (!route || route.startsWith('#/')) return
+
+    const frame = window.requestAnimationFrame(() => {
+      const target = document.getElementById(route.slice(1))
+      target?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    })
+
+    return () => window.cancelAnimationFrame(frame)
+  }, [route])
+
   // Dedicated problem-statement page lives at #/problem (shareable URL).
   if (route.startsWith('#/problem')) {
     return <ProblemStatement />
@@ -165,22 +180,7 @@ function App() {
 
   return (
     <div className="site-shell">
-      <header className="nav">
-        <a className="brand" href="#top" aria-label="Microplastic Conference home">
-          <span className="brand-mark">UofT</span>
-          <span>Microplastic Conference home</span>
-        </a>
-        <nav aria-label="Main navigation">
-          <a href="#about">About</a>
-          <a href="#/problem">The Problem</a>
-          <a href="#program">Program</a>
-          <a href="#partners">Partners</a>
-          <a href="#tickets">Tickets</a>
-        </nav>
-        <a className="nav-cta" href="#tickets">
-          Get a pass
-        </a>
-      </header>
+      <ConferenceNav />
 
       <main id="top">
         <section className="hero">
