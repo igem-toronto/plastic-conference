@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import ProblemStatement from './ProblemStatement'
 import ConferenceNav from './ConferenceNav'
 import trashTeamLogo from './assets/Logo-final-trash-team_dark_background.webp'
-import schoolOfEnvLogo from './assets/uoft school of the env.DyREpoyV.png'
+import assuLogo from './assets/NewAssuLogo.JPG'
 import torontoClimateWeekLogo from './assets/toronto-climate-week.png'
 
 // Minimal hash-based "router" (no dependency), and it coexists with the existing
@@ -110,12 +110,12 @@ const partners = [
     url: 'https://uofttrashteam.ca/',
   },
   {
-    name: 'U of T School of the Environment',
+    name: 'Arts & Science Students’ Union',
     description:
-      'The School of the Environment is a hub for students and researchers across the social sciences, natural sciences, and humanities, bringing together diverse perspectives on today\'s pressing environmental challenges.',
-    image: schoolOfEnvLogo,
+      'ASSU is the academic student union for over 27,000 full-time undergraduate students in the Faculty of Arts & Science at the University of Toronto, organizing through more than 60 course unions to hold events, change policies, and support students.',
+    image: assuLogo,
     accent: 'orange',
-    url: 'https://www.environment.utoronto.ca/',
+    url: 'https://assu.ca/wp/',
   },
   {
     name: 'Toronto Climate Week',
