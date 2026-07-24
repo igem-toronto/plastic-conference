@@ -1758,16 +1758,23 @@ footer {
 .story-text-link { border-bottom: 1px solid rgba(255,255,255,.5); color: white; font-weight: 700; padding: .5rem 0; }
 
 .story-hero-visual { align-self: center; aspect-ratio: 1; position: relative; z-index: 1; }
-.story-water-ring { align-items: center; background: rgba(77,151,169,.22); border: 1px solid rgba(121,211,242,.5); border-radius: 50%; display: flex; flex-direction: column; height: 76%; justify-content: center; left: 12%; position: absolute; text-align: center; top: 7%; width: 76%; }
+.story-water-ring { align-items: center; background: rgba(77,151,169,.22); border: 1px solid rgba(121,211,242,.5); border-radius: 50%; display: grid; height: 76%; justify-items: center; left: 12%; position: absolute; text-align: center; top: 7%; width: 76%; }
 .story-water-ring::before, .story-water-ring::after { border: 1px solid rgba(121,211,242,.18); border-radius: 50%; content: ''; inset: -12%; position: absolute; }
 .story-water-ring::before { border-color: var(--story-yellow) transparent var(--story-sky) transparent; border-style: solid; border-width: 2px; animation: story-orbit 16s linear infinite; }
 .story-water-ring::after { animation: story-ring-breathe 4.5s ease-in-out infinite; inset: -25%; }
-.story-water-ring span { color: var(--story-yellow); font: 700 clamp(5rem, 9vw, 8rem)/.9 'Manrope', sans-serif; letter-spacing: -.08em; }
-.story-water-ring small { color: white; font-size: clamp(.8rem, 1.3vw, 1rem); font-weight: 700; letter-spacing: .06em; line-height: 1.4; margin-top: 1rem; text-transform: uppercase; }
+.story-water-stat { align-items: center; animation: story-stat-swap 8s ease-in-out infinite; display: flex; flex-direction: column; grid-area: 1 / 1; justify-content: center; padding: 12%; }
+.story-water-stat-world { animation-delay: -4s; }
+.story-water-stat span { color: var(--story-yellow); font: 700 clamp(5rem, 9vw, 8rem)/.9 'Manrope', sans-serif; letter-spacing: -.08em; }
+.story-water-stat small { color: white; font-size: clamp(.72rem, 1.15vw, .95rem); font-weight: 700; letter-spacing: .055em; line-height: 1.45; margin-top: 1rem; text-transform: uppercase; }
 .story-hero-visual i { --angle: calc(var(--i) * 20deg); animation: story-particle-glow 2.8s ease-in-out infinite alternate; animation-delay: calc(var(--i) * -140ms); background: var(--story-sky); border-radius: 50%; height: 7px; left: 50%; opacity: .52; position: absolute; top: 45%; transform: rotate(var(--angle)) translateX(clamp(10rem, 16vw, 15rem)); transform-origin: 0 0; width: 7px; }
 .story-hero-visual > p { bottom: 0; color: rgba(255,255,255,.58); font-size: .78rem; font-weight: 700; left: 0; letter-spacing: .09em; line-height: 1.5; margin: 0; position: absolute; text-transform: uppercase; }
 @keyframes story-orbit { to { transform: rotate(360deg); } }
 @keyframes story-ring-breathe { 0%, 100% { opacity: .45; transform: scale(.98); } 50% { opacity: 1; transform: scale(1.025); } }
+@keyframes story-stat-swap {
+  0%, 42% { opacity: 1; transform: translateY(0) scale(1); }
+  50%, 92% { opacity: 0; transform: translateY(-.5rem) scale(.96); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
 @keyframes story-particle-glow { from { opacity: .22; } to { box-shadow: 0 0 14px rgba(121,211,242,.72); opacity: .9; } }
 
 .story-summary { align-items: start; background: var(--story-teal); color: white; display: grid; gap: 3rem; grid-template-columns: .65fr 2fr; padding: 2.8rem max(5vw, calc((100vw - 1360px) / 2)); }
@@ -1934,6 +1941,8 @@ footer {
 @media (prefers-reduced-motion: reduce) {
   .story-reveal, .story-reveal.is-visible { opacity: 1; transform: none; transition: none; }
   .story-pathway-panel { animation: none; }
+  .story-water-stat { animation: none; }
+  .story-water-stat-world { display: none; }
   .story-water-ring::before,
   .story-water-ring::after,
   .story-hero-visual i,

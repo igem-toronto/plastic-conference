@@ -99,7 +99,16 @@ export default function ProblemStatement() {
 
           </div>
           <div className="story-hero-visual story-reveal" aria-hidden="true">
-            <div className="story-water-ring"><span>84%</span><small>of North America’s<br />surface freshwater</small></div>
+            <div className="story-water-ring">
+              <div className="story-water-stat story-water-stat-north-america">
+                <span>84%</span>
+                <small>of North America’s surface freshwater<br />is held by the Great Lakes.</small>
+              </div>
+              <div className="story-water-stat story-water-stat-world">
+                <span>20%</span>
+                <small>of the world’s surface freshwater<br />is held here.</small>
+              </div>
+            </div>
             {Array.from({ length: 18 }, (_, index) => <i key={index} style={{ '--i': index }} />)}
             <p>One connected system.<br />A problem too large for silos.</p>
           </div>
